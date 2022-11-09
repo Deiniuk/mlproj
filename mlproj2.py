@@ -19,11 +19,7 @@ plt.plot(x, t1)
 plt.plot(x, t1, 'ro')
 plt.show()
 # Графік синусоїдальної функції з нормальним шумом та прогнозовані дані
-y_pred = []
-for i in range(N):
-    tra = -0.1+11.05*x[i]-33.03*x[i]**2+22.13*x[i]**3
-    y_pred.append(tra)
-print(y_pred)
+y_pred = np.poly1d(np.polyfit(x, t1, 3))
 plt.scatter(x, t1)
-plt.plot(x, y_pred)
+plt.plot(x, y_pred(x))
 plt.show()
